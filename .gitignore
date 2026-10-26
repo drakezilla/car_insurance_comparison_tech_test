@@ -11,3 +11,8 @@
 /config/reference.php
 /CHECK24_HANDOFF.md
 /.codex/
+
+###> phpunit/phpunit ###
+/phpunit.xml
+/.phpunit.cache/
+###< phpunit/phpunit ###

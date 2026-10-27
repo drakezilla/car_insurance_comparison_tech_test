@@ -1,0 +1,10 @@
+parameters:
+  app.insurance_providers:
+    axa:
+      name: 'Axa seguros de coche'
+      url: 'https://httpbin.org/delay/3'
+      adapter: 'App\Provider\AxaAdapter'
+    pelayo:
+      name: 'Pelayo seguros'
+      url: 'https://httpbingo.org/delay/1'
+      adapter: 'App\Provider\PelayoAdapter'

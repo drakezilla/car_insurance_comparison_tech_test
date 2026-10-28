@@ -4,9 +4,9 @@ parameters:
       name: 'Axa seguros de coche'
       url: 'http://localhost:8000/provider/axa/v1/quotes'
       verb: 'POST'
-      adapter: 'App\Provider\AxaAdapter'
+      adapter: 'App\Comparison\Adapter\AxaAdapter'
     pelayo:
       name: 'Pelayo seguros'
       url: 'http://localhost:8000/provider/pelayo/v2/offers'
       verb: 'POST'
-      adapter: 'App\Provider\PelayoAdapter'
+      adapter: 'App\Comparison\Adapter\PelayoAdapter'

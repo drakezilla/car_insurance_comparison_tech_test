@@ -30,7 +30,7 @@ class PelayoGenerateDummyResponse
             $quotes[] = [
                 "uuid" => $this->faker->uuid,
                 "name" => $name,
-                "amountCents" => rand($minPrice, $maxPrice),
+                "priceCents" => rand($minPrice, $maxPrice),
                 "currency" => "EUR",
                 "insuraPayperiod" => $this->faker->randomElement(["monthly", "annual"]),
                 "thirdPartyLiability" => (bool) rand(0, 1),

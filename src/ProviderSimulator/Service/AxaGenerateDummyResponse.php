@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\ProviderSimulator\Service;
 
 use App\ProviderSimulator\Request\AxaRequest;
-use App\ProviderSimulator\Traits\NeedFaker;
+use App\ProviderSimulator\TraitsNeedFaker;
 
 class AxaGenerateDummyResponse
 {
@@ -30,9 +30,11 @@ class AxaGenerateDummyResponse
             $quotes[] = [
                 "uuid" => $this->faker->uuid,
                 "name" => $name,
-                "price.amountCents" => rand($minPrice, $maxPrice),
-                "price.currency" => "EUR",
-                "price.period" => $this->faker->randomElement(["monthly", "annual"]),
+                "price" => [
+                    "amountCents" => rand($minPrice, $maxPrice),
+                    "currency" => "EUR",
+                    "period" => $this->faker->randomElement(["monthly", "annual"]),
+                ],
                 "civilLiability" => (bool) rand(0, 1),
                 "glassCoverage" => (bool) rand(0, 1),
                 "theftCoverage" => (bool) rand(0, 1),

@@ -2,9 +2,11 @@ parameters:
   app.insurance_providers:
     axa:
       name: 'Axa seguros de coche'
-      url: 'https://httpbin.org/delay/3'
+      url: 'http://localhost:8000/provider/axa/v1/quotes'
+      verb: 'POST'
       adapter: 'App\Provider\AxaAdapter'
     pelayo:
       name: 'Pelayo seguros'
-      url: 'https://httpbingo.org/delay/1'
+      url: 'http://localhost:8000/provider/pelayo/v2/offers'
+      verb: 'POST'
       adapter: 'App\Provider\PelayoAdapter'

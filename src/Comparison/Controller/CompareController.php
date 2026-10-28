@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\Routing\Attribute\Route;
 
-final class ConcurrentRequestsController extends AbstractController
+final class CompareController extends AbstractController
 {
     #[Route('/compare', name: 'app_comparison_compare', methods: ['GET'])]
     public function index(ConcurrentRequests $requests): StreamedResponse

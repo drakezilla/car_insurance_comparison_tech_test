@@ -40,7 +40,7 @@ class PelayoAdapter
                 'uuid' => $values['uuid'],
                 'provider' => 'pelayo',
                 'name' => $values['name'],
-                'amountCents' => $values['amountCents'],
+                'amountCents' => $values['priceCents'],
                 'currency' => $values['currency'],
                 'period' => $values['insuraPayperiod'],
                 'civilLiability' => $values['thirdPartyLiability'],

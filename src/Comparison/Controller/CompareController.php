@@ -8,14 +8,17 @@ use App\Comparison\Service\ConcurrentRequests;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 final class CompareController extends AbstractController
 {
-    #[Route('/compare', name: 'app_comparison_compare', methods: ['GET'])]
-    public function index(ConcurrentRequests $requests): StreamedResponse
-    {
-        return new StreamedResponse(static function () use ($requests): void {
-            foreach ($requests->fetch() as $event) {
+    #[Route('/compare', name: 'app_comparison_compare', methods: ['POST'])]
+    public function index(
+        Request $request,
+        ConcurrentRequests $concurrentRequests,
+    ): StreamedResponse {
+        return new StreamedResponse(static function () use ($request, $concurrentRequests): void {
+            foreach ($concurrentRequests->fetch($request) as $event) {
                 echo json_encode($event, JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES) . "\n";
 
                 if (ob_get_level() > 0) {

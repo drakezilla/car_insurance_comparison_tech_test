@@ -7,6 +7,7 @@ namespace App\Comparison\Service;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class ConcurrentRequests
 {
@@ -17,14 +18,14 @@ class ConcurrentRequests
     ) {
     }
 
-    public function fetch(): \Generator
+    public function fetch(Request $request): \Generator
     {
         $startedAt = hrtime(true);
 
         foreach ($this->providers as $provider => $data) {
             $adapter = new $data["adapter"]();
             try {
-                $responses[] = $adapter->handle($provider, $data);
+                $responses[] = $adapter->handle($provider, $data, $request->toArray());
             } catch (\Throwable $th) {
                 throw $th;
             }

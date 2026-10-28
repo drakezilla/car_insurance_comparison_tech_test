@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Service;
+namespace App\Comparison\Service;
 
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;

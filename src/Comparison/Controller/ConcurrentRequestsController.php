@@ -2,23 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Comparison\Controller;
 
-use App\Service\ConcurrentRequests;
+use App\Comparison\Service\ConcurrentRequests;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\Routing\Attribute\Route;
 
 final class ConcurrentRequestsController extends AbstractController
 {
-    #[Route('/test', name: 'app_test', methods: ['GET'])]
-    public function test(ConcurrentRequests $requests): void
-    {
-        $requests->fetch()->rewind();
-        die();
-    }
-
-    #[Route('/concurrent/requests', name: 'app_concurrent_requests', methods: ['GET'])]
+    #[Route('/compare', name: 'app_comparison_compare', methods: ['GET'])]
     public function index(ConcurrentRequests $requests): StreamedResponse
     {
         return new StreamedResponse(static function () use ($requests): void {

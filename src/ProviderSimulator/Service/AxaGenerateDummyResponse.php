@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\ProviderSimulator\Service;
 
 use App\ProviderSimulator\Request\AxaRequest;
-use App\Traits\NeedFaker;
+use App\ProviderSimulator\Traits\NeedFaker;
 
 class AxaGenerateDummyResponse
 {

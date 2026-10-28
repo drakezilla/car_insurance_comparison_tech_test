@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Traits;
+namespace App\ProviderSimulator\Traits;
 
 use Faker\Generator;
 use Faker\Factory;
